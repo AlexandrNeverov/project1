@@ -1,4 +1,4 @@
-- - -
+---
 - name: Create file on hosts step 1
   hosts: web1
   become: yes

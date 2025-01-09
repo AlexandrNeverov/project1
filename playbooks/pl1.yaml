@@ -1,0 +1,27 @@
+- - -
+- name: Create file on hosts step 1
+  hosts: web1
+  become: yes
+  tasks:
+    - name: Creata file on web1
+      file:
+        path: /home/ubuntu/file1.txt
+        state: touch
+
+- name: Create file on hosts step 2
+  hosts: web2
+  become: yes
+  tasks:
+    - name: Create file on web2
+      file:
+        path: /home/ubuntu/file2.txt
+        state: touch
+
+- name: Create file on hosts step 3
+  hosts: DB
+  become: yes
+  tasks:
+    - name: Create file on DB
+      file:
+        path: /home/ubuntu/file3.txt
+        state: touch

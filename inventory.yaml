@@ -1,9 +1,11 @@
-web1:
-  ansible_host: 3.88.221.142
-  ansible_user: ubuntu
-web2:
-  ansible_host: 54.161.227.16
-  ansible_user: ubuntu
-DB:
-  ansible_host: 98.82.16.36
-  ansible_user: ubuntu
+All:
+  hosts:
+    web1:
+      ansible_host: 3.88.221.142
+      ansible_user: ubuntu
+    web2:
+      ansible_host: 54.161.227.16
+      ansible_user: ubuntu
+    DB:
+      ansible_host: 98.82.16.36
+      ansible_user: ubuntu

@@ -4,8 +4,7 @@
   become: yes
   tasks:
     - name: Creatу file on web1
-      &default
-        file:
+    file: &default
           path: /home/ubuntu/new.txt
           state: touch
 
@@ -14,12 +13,13 @@
   become: yes
   tasks:
     - name: Create file on web2
+     file: 
       <<: *default
 
 - name: Create file on hosts step 3
   hosts: DB
   become: yes
   tasks:
-    - name: Create file on DB
+     file: 
       <<: *default
    

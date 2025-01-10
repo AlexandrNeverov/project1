@@ -5,9 +5,9 @@
   tasks:
     - name: Creatу file on web1
       &default
-      file:
-        path: /home/ubuntu/new.txt
-        state: touch
+        file:
+          path: /home/ubuntu/new.txt
+          state: touch
 
 - name: Create file on hosts step 2
   hosts: web2
@@ -22,3 +22,4 @@
   tasks:
     - name: Create file on DB
       <<: *default
+   

@@ -3,23 +3,24 @@
   hosts: web1
   become: yes
   tasks:
-    - name: Creatу file on web1
-    file: &default
-          path: /home/ubuntu/new.txt
-          state: touch
+    - name: Create file on web1
+      file: &default  # Создаем якорь на всей задаче
+        path: /home/ubuntu/new.txt
+        state: touch
 
 - name: Create file on hosts step 2
   hosts: web2
   become: yes
   tasks:
     - name: Create file on web2
-     file: 
-      <<: *default
+      file:
+        <<: *default  # Ссылка на якорь
 
 - name: Create file on hosts step 3
   hosts: DB
   become: yes
   tasks:
-     file: 
-      <<: *default
+    - name: Create file on DB
+      file:
+        <<: *default  # Ссылка на якорь
    

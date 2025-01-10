@@ -1,0 +1,24 @@
+---
+- name: Create file on hosts step 1
+  hosts: web1
+  become: yes
+  tasks:
+    - name: Creatу file on web1
+      &default
+      file:
+        path: /home/ubuntu/new.txt
+        state: touch
+
+- name: Create file on hosts step 2
+  hosts: web2
+  become: yes
+  tasks:
+    - name: Create file on web2
+      <<: *default
+
+- name: Create file on hosts step 3
+  hosts: DB
+  become: yes
+  tasks:
+    - name: Create file on DB
+      <<: *default
